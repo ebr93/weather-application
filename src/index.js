@@ -1,16 +1,32 @@
 import _ from 'lodash';
+import logicManipulation from './inputFunctions';
 import './styles/style.css';
+import apiOrder from './weatherAPI';
+// import weatherData from './weatherData';
 
-function component() {
-  const element = document.createElement('div');
+const bttn = document.querySelector('button');
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
+/*
+const weatherOrder = async () => {
+  let city = document.querySelector('#location').value;
+  if (city === '') {
+    city = 'London';
+  }
 
-  return element;
-}
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=d743fd1ec4abd92daec018ecb07ebfc3&units=imperial`);
+    const weatherData = await response.json();
+    console.log(weatherData.main.temp);
+  } catch (err) {
+    console.log(err);
+  }
+};
+*/
 
-document.body.appendChild(component());
-
-console.log('1 2 3');
+bttn.addEventListener('click', () => {
+  apiOrder.setWeatherObj()
+    .then(() => {
+      logicManipulation.clearContainer();
+      logicManipulation.printInfo();
+    });
+});

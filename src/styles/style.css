@@ -20,28 +20,132 @@ html {
 }
  
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 400;
-    line-height: 1.3;
-    color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  color: white;
 }
 
 :root {
-    --large-spacing: 20px;
-    --medium-spacing: 10px;
-    --small-spacing: 5px;
+  --main-color: #ccd0f6;
+  --button-color: #f593b7;
+  --lilac-color: #ad7ffa;
+  --blue-color: #91b2fd;
+  --background-color: #f9fafd;
+
+  --large-spacing: 20px;
+  --medium-spacing: 10px;
+  --small-spacing: 5px;
 }
 
 button {
-    font-weight: bolder;
+font-weight: bolder;
+text-align: center;
+transition: all 0.5s;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+button:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;  
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover{
+  padding-right: 24px;
+  padding-left:8px;
+}
+
+button:hover:after {
+  opacity: 1;
+  right: 10px;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
+.wrapper {
+  display: grid;
+  grid-template-rows: 80px minmax(calc(100vh - 130px), 1fr) 50px;
+  grid-template-areas: 
+  "header"
+  "main-content"
+  "footer";
+  width: 100vw;
+  background-color: #181818;
+}
 
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.logo {
+  font-weight: bolder;
+}
+
+#location {
+  border-radius: 5px;
+    background-color: #202020;
+    color: white;
+    border: none;
+}
+
+.main-content {
+  grid-area: main-content;
+  display: flex;
+  padding: 0px var(--medium-spacing) 0px var(--medium-spacing);
+}
+
+.right-side {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+  gap: var(--medium-spacing);
+  padding: var(--large-spacing);
+}
+
+.weather-div {
+  background-color: #202020;
+  color: white;
+  height: 350px;
+  padding: var(--large-spacing);
+  border-radius: 15px;
+}
+
+.weather-list {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  height: 300px;
+}
+
+.weather-list .weather-text {
+  flex: 1;
+  font-size: 1.4rem;
+}
+
+.svg {
+  align-self: flex-end;
+  width: 50%;
+  filter: invert(1);
+}
+
+.weather-text-first {
+  flex: 1;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+}
 
 
 
