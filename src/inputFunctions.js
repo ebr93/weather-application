@@ -28,7 +28,22 @@ const logicManipulation = (() => {
     }
   });
 
+  const clearForm = (() => {
+    const inputForm = document.querySelector('#location');
+    inputForm.value = '';
+  });
+
+  const clearLabel = (() => {
+    const labelForm = document.querySelector('label');
+    labelForm.innerText = '';
+  });
+
   const printInfo = (() => {
+    if (weatherData.getCity() === '') return;
+
+    clearForm();
+    clearContainer();
+
     const rightDiv = document.querySelector('.right-side');
     const weatherDiv = document.createElement('div');
     weatherDiv.classList.add('weather-div');
@@ -66,6 +81,8 @@ const logicManipulation = (() => {
 
   return {
     clearContainer,
+    clearForm,
+    clearLabel,
     printInfo,
   };
 })();

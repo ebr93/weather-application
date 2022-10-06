@@ -77,7 +77,11 @@ img {
   "main-content"
   "footer";
   width: 100vw;
-  background-color: #181818;
+  background: url(../images/sky.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
 }
 
 .header {
@@ -91,11 +95,18 @@ img {
   font-weight: bolder;
 }
 
+.form {
+  display: flex;
+  justify-content: space-around;
+  width: 20vw;
+}
+
 #location {
+  flex: 1;
   border-radius: 5px;
-    background-color: #202020;
-    color: white;
-    border: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
 }
 
 .main-content {
@@ -112,7 +123,7 @@ img {
 }
 
 .weather-div {
-  background-color: #202020;
+  background-color: rgba(0, 0, 0, 0.3);
   color: white;
   height: 350px;
   padding: var(--large-spacing);
